@@ -41,7 +41,7 @@ class FixedStatus(tweepy.Status):
 class MyStreamListener(tweepy.StreamListener):
     def on_status(self, status_ori):
         status = FixedStatus(status_ori)
-        if not status.is_arcade:
+        if status.author.id_str == TARGET_ID and not status.is_arcade:
             status.retweet()
 
 
