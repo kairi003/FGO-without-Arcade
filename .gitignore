@@ -1,0 +1,5 @@
+run.bat
+__pycache__/
+.vscode/
+venv/
+token.json
