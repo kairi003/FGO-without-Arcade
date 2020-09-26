@@ -3,6 +3,11 @@
 
 import os
 import tweepy
+import logging
+
+logging.basicConfig(level=logging.INFO)
+logger = logging.getLogger(__name__)
+logger.setLevel(logging.DEBUG)
 
 
 CONSUMER_KEY = os.environ['CONSUMER_KEY']
@@ -51,6 +56,7 @@ class MyStreamListener(tweepy.StreamListener):
         if status.author.id_str == TARGET_ID and not status.is_arcade:
             status.retweet()
             self.api.update_status(status.url)
+            logger.debug(f'CatchTweetID: {status.id}')
 
 
 
