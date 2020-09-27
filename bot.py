@@ -55,7 +55,7 @@ class MyStreamListener(tweepy.StreamListener):
         status = ExStatus(status_ori)
         if status.author.id_str == TARGET_ID and not status.is_arcade:
             status.retweet()
-            self.api.update_status(status.url)
+            # self.api.update_status(status.url)
             logger.debug(f'CatchTweetID: {status.id}')
 
 
